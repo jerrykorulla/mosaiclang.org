@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mosaic - Modeling and Simulation in C++</title>
+  <style>
+    html, body {
+	  height: 100%;
+	  margin: 0;
+	  font-family: Arial, sans-serif;
+	  background: linear-gradient(to bottom right, #1a1a1a, #2d2d2d);
+	  color: white;
+	}
+
+	/* Optional: ensure content fills the full height */
+	body {
+	  display: flex;
+	  flex-direction: column;
+	  padding: 2rem;
+	  box-sizing: border-box;
+	}
+
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      color: #ccc;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    nav button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: #444;
+      color: white;
+      cursor: pointer;
+    }
+    nav button.active {
+      background: #007acc;
+    }
+    section {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section.active {
+      display: block;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mosaic</h1>
+    <p>Modeling and Simulation in C++</p>
+  </header>
+
+  <nav>
+    <button class="tab-btn active" data-target="get-started">Get Started</button>
+    <button class="tab-btn" data-target="documentation">Documentation</button>
+    <button class="tab-btn" data-target="install">Install</button>
+  </nav>
+
+  <section id="get-started" class="active">
+    <h2>Get Started</h2>
+    <p>Mosaic is a C++-based programming language designed for modeling and simulation applications. Start by exploring example projects and tutorials to get a feel for how Mosaic works.</p>
+  </section>
+
+  <section id="documentation">
+    <h2>Documentation</h2>
+    <p>Comprehensive guide to Mosaic syntax, semantics, and best practices.</p>
+  </section>
+
+  <section id="install">
+    <h2>Install</h2>
+    <p>Follow these steps to install Mosaic on your machine:</p>
+    <ul>
+      <li>Ensure you have a C++17 compatible compiler</li>
+      <li>Clone the Mosaic repository from GitHub</li>
+      <li>Run the provided build script or CMake configuration</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> mosaic.org. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const buttons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('section');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        button.classList.add('active');
+        document.getElementById(button.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
